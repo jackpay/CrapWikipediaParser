@@ -42,12 +42,12 @@ public class WikipediaDocumentRetriever {
 
             };
             String responseBody = httpclient.execute(httpget, responseHandler);
-            System.out.println("----------------------------------------");
+            //System.out.println("----------------------------------------");
             if(responseBody.contains("#REDIRECT")){
-            	System.err.println(responseBody);
+            	//System.err.println(responseBody);
             	final String regPatt = "\\#REDIRECT \\[\\[[\\w\\s]*\\]\\]";
             	Pattern pat = Pattern.compile(regPatt);
-            	System.err.println(pat.toString());
+            	//System.err.println(pat.toString());
             	Matcher mat = pat.matcher(responseBody);
             	mat.find();
             	String page = responseBody.substring((mat.start()+12), (mat.end()-2)).replace(" ", "_");

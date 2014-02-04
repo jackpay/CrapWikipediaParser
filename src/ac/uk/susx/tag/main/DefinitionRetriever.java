@@ -31,7 +31,14 @@ public class DefinitionRetriever {
 	}
 
 	public static void main(String[] args) {
-		DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/commensalbacterialinfectiousdisease/DOID-0050339.obo","/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/commensalbacterialinfectiousdisease/defFiles");
+		//DefinitionRetriever def = new DefinitionRetriever("","");
+		//DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/HumanDO.obo","/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/all-onotology-wikipages");
+		//DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/acquiredmetabolicdisease-DOID0060158/acquired-metabolic-disease.disease.obo","/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/acquiredmetabolicdisease-DOID0060158/defFiles");
+		//DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/malereproductivesystemdisease-DOID48/male-reprodcutive-system.disease.obo","/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/malereproductivesystemdisease-DOID48/defFiles");
+		//DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/cardiovascular-system-disease-DOID1287/cardiovascular-disease.obo","/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/cardiovascular-system-disease-DOID1287/defFiles");
+		//DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/nervous-system-disease-DOID863/nervous-system-disease.obo","/Users/jp242/Documents/PhD-LDA/DiseaseOntology/diseaseontology/subtree/nervous-system-disease-DOID863/defFiles");
+		//DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/Experiments/experiment-1-23-01-2014/datasets/acquired-metabolic-disease-0060158/acquired-metabolic-disease-0060158.obo","/Users/jp242/Documents/PhD-LDA/Experiments/experiment-1-23-01-2014/datasets/acquired-metabolic-disease-0060158/defFiles");
+		DefinitionRetriever def = new DefinitionRetriever("/Users/jp242/Documents/PhD-LDA/Experiments/experiment-1-23-01-2014/datasets/cognitive-disorders-DOID1561/cognitive-disorder-1561.obo","/Users/jp242/Documents/PhD-LDA/Experiments/experiment-1-23-01-2014/datasets/cognitive-disorders-DOID1561/defFiles");
 		try {
 			def.getDefinitions();
 		} catch (OWLOntologyCreationException e) {
@@ -59,8 +66,8 @@ public class DefinitionRetriever {
         while(i.hasNext()){
         	OWLClass c = i.next();
         	createDefFile(c);
-        	System.out.println("-----------------------------" + g.getIdentifier(c) + "----------------------------");
-        	System.out.println(g.getDef(c));
+        	//System.out.println("-----------------------------" + g.getIdentifier(c) + "----------------------------");
+        	//System.out.println(g.getDef(c));
         }
 	}
 
@@ -73,7 +80,6 @@ public class DefinitionRetriever {
 				Iterator<String> defS = defRefs.iterator();
 				while(defS.hasNext()){
 					String next = defS.next();
-					System.err.println(next);
 					if(next.contains("wikipedia")){
 						String[] spl = next.split("/");
 						String page = spl[spl.length-1];
